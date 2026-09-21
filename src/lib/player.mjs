@@ -88,6 +88,8 @@ export class Player {
         this.lastError = "Set soundFontPath in config.json to play MIDI tracks.";
         this.status = "stopped";
         this.child = null;
+        this.elapsedBaseSeconds = 0;
+        this.playStartedAt = null;
         return;
       }
       child = this.spawnMidiFn(track.filePath, this.soundFontPath, { volumePercent: this.volumePercent });
