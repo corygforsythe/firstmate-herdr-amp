@@ -79,6 +79,19 @@ test("play() on a midi track with no soundFontPath configured fails gracefully",
   assert.equal(spawnMidiFn.spawned.length, 0);
 });
 
+test("switching from a paused mp3 to a midi track with no soundFontPath resets elapsed time", async () => {
+  const { player } = makePlayer({ soundFontPath: null });
+  player.play(0); // mp3 track, no soundFontPath needed
+  await new Promise((r) => setTimeout(r, 20));
+  player.togglePlayPause(); // pause snapshots the in-progress elapsed time into elapsedBaseSeconds
+  assert.ok(player.elapsedSeconds > 0, "sanity check: mp3 track had progressed before pausing");
+
+  player.play(1); // midi track, but no soundFontPath configured
+  assert.equal(player.status, "stopped");
+  assert.match(player.lastError, /soundFontPath/);
+  assert.equal(player.elapsedSeconds, 0, "elapsed time must not carry over from the previous track");
+});
+
 test("togglePlayPause pauses via SIGSTOP and resumes via SIGCONT without killing the process", () => {
   const { player, spawnMp3Fn } = makePlayer();
   player.play(0);
