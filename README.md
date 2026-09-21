@@ -44,6 +44,8 @@ volume changes work differently for MP3 vs. MIDI).
 ## Quick Start
 
 ```sh
+git clone https://github.com/corygforsythe/firstmate-herdr-amp
+cd firstmate-herdr-amp
 brew install ffmpeg fluid-synth   # see the dependency table above
 herdr --version                   # confirm the CLI is present
 herdr plugin link "$(pwd)"        # link this checkout as a local plugin
@@ -135,3 +137,7 @@ See [AGENTS.md](AGENTS.md) for contributor-facing notes: the herdr 0.8.x
 plugin-runtime quirks worked around in `bin/`, and the full playback-model
 rationale (why ffplay/fluidsynth, why seek/volume behave differently per
 format, how pause/resume actually works).
+
+## License
+
+MIT — see [LICENSE](LICENSE).
