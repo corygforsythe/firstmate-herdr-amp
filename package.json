@@ -1,0 +1,14 @@
+{
+  "name": "firstmate-herdr-amp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Herdr Amp: a WinAmp-style terminal pane for playing MP3 and MIDI files",
+  "scripts": {
+    "lint": "find src bin test -name '*.mjs' -print0 | xargs -0 -n1 node --check",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
