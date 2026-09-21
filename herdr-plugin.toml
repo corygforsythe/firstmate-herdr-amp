@@ -1,0 +1,20 @@
+id = "dev.coryforsythe.firstmate-herdr-amp"
+name = "Herdr Amp"
+version = "0.1.0"
+min_herdr_version = "0.8.0"
+description = "A WinAmp-style terminal audio player pane for MP3 and MIDI files"
+platforms = ["macos"]
+
+[[actions]]
+id = "open"
+title = "Open Herdr Amp"
+description = "Open the Herdr Amp player as a split pane"
+contexts = ["workspace"]
+command = ["sh", "bin/run-node.sh", "bin/open-amp.mjs"]
+
+[[panes]]
+id = "amp"
+title = "Amp"
+description = "WinAmp-style audio player for MP3 and MIDI tracks"
+placement = "split"
+command = ["sh", "bin/run-node.sh", "src/amp-tui.mjs"]

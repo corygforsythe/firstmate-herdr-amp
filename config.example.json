@@ -1,0 +1,5 @@
+{
+  "musicDir": "/absolute/path/to/your/music",
+  "soundFontPath": "/absolute/path/to/a/General-MIDI.sf2",
+  "defaultVolumePercent": 70
+}
